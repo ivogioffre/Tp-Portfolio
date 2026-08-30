@@ -1,0 +1,687 @@
+/* PORTFOLIO — Ivo Gioffre Estetica: Neon (retro 80s) */
+
+/* 1. VARIABLES CSS (tokens de diseño)*/
+:root {
+  /* Paleta neon */
+  --bg-dark: #0d0221;
+  --bg-dark-2: #1a0b2e;
+  --neon-pink: #ff2ec4;
+  --neon-cyan: #05d9e8;
+  --neon-violet: #7b2ff7;
+  --neon-yellow: #f9f002;
+  --text-light: #f4f2fb;
+  --text-muted: #b8aed4;
+
+  /* Tipografías */
+  --font-display: "Orbitron", "Segoe UI", sans-serif;
+  --font-body: "Rajdhani", "Segoe UI", sans-serif;
+
+  /* Layout */
+  --max-width: 1150px;
+  --radius: 14px;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Tema activo (por defecto = oscuro/neon) */
+  --bg: var(--bg-dark);
+  --bg-elevated: var(--bg-dark-2);
+  --text: var(--text-light);
+  --text-secondary: var(--text-muted);
+  --accent: var(--neon-pink);
+  --accent-2: var(--neon-cyan);
+  --border-color: rgba(255, 46, 196, 0.35);
+}
+
+/*  2. MODO CLARO (toggle vía clase en <body>) */
+body:has(#themeSwitch:checked) {
+  --bg: #f4f2fb;
+  --bg-elevated: #ffffff;
+  --text: #1a0b2e;
+  --text-secondary: #4a3f66;
+  --accent: #d6008f;
+  --accent-2: #007b8a;
+  --border-color: rgba(123, 47, 247, 0.25);
+}
+
+/* 3. RESET / BASE */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* scroll suave entre secciones */
+  scroll-padding-top: 80px; /* compensa el navbar fijo */
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.section-eyebrow {
+  color: var(--accent-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 3rem;
+  color: var(--text);
+  text-shadow: 0 0 12px var(--accent);
+}
+
+/*4. NAVBAR*/
+.navbar-neon {
+  background: rgba(13, 2, 33, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.7rem 0;
+  transition: background-color var(--transition-slow);
+}
+
+body:has(#themeSwitch:checked) .navbar-neon {
+  background: rgba(244, 242, 251, 0.85);
+}
+
+.navbar-brand {
+  color: var(--text) !important;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand-dot {
+  color: var(--accent);
+}
+
+/* Botones neon del header: cambian de color / brillan al pasar el mouse */
+.btn-neon {
+  color: var(--text) !important;
+  border: 1px solid transparent;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+              box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-neon:hover,
+.btn-neon:focus-visible {
+  color: var(--neon-cyan) !important;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px rgba(5, 217, 232, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-neon:nth-of-type(3n+2):hover {
+  color: var(--neon-pink) !important;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px rgba(255, 46, 196, 0.4);
+}
+
+.btn-neon:nth-of-type(3n+3):hover {
+  color: var(--neon-yellow) !important;
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 10px var(--neon-yellow), 0 0 20px rgba(249, 240, 2, 0.4);
+}
+
+.text-neon {
+  color: var(--accent);
+}
+
+.btn-outline-toggle {
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-outline-toggle:hover {
+  border-color: var(--neon-yellow);
+  color: var(--neon-yellow);
+  box-shadow: 0 0 10px var(--neon-yellow);
+  transform: rotate(20deg);
+}
+
+/* El checkbox real queda invisible; lo que se ve es el <label> de arriba.
+   Al tocar el label, el checkbox cambia de estado solo (así funciona el
+   atributo "for") y con eso alcanza para cambiar el tema, sin JavaScript. */
+.theme-switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.icon-sun {
+  display: none;
+}
+
+.theme-switch-input:checked + .btn-outline-toggle .icon-moon {
+  display: none;
+}
+
+.theme-switch-input:checked + .btn-outline-toggle .icon-sun {
+  display: inline;
+}
+
+/* -----------------------------------------
+   5. HERO / SOBRE MÍ — estética synthwave
+   ----------------------------------------- */
+.hero-synthwave {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #24063f 55%, #3a0a5c 100%);
+  padding-top: 80px;
+  transition: background var(--transition-slow);
+}
+
+/* En modo claro el hero pasa a un degradé claro, para que el toggle se note */
+body:has(#themeSwitch:checked) .hero-synthwave {
+  background: linear-gradient(180deg, #f4f2fb 0%, #e4d9f7 55%, #d8c3f0 100%);
+}
+
+/* En modo claro, las letras del hero pasan a oscuras para que se puedan leer */
+body:has(#themeSwitch:checked) .hero-title {
+  color: var(--bg-dark);
+  text-shadow: 0 0 8px var(--neon-pink), 0 0 18px rgba(255, 46, 196, 0.5);
+}
+
+body:has(#themeSwitch:checked) .hero-text {
+  color: var(--bg-dark);
+  text-shadow: none;
+}
+
+/* Sol retro con franjas */
+.synth-sun {
+  position: absolute;
+  bottom: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--neon-yellow) 0%, var(--neon-pink) 55%, var(--neon-violet) 100%);
+  background-size: 100% 100%;
+  -webkit-mask-image: repeating-linear-gradient(
+      to bottom, black 0px, black 8px, transparent 8px, transparent 16px
+    ),
+    linear-gradient(black, black);
+  -webkit-mask-composite: source-in;
+  mask-image: repeating-linear-gradient(
+      to bottom, black 0px, black 8px, transparent 8px, transparent 16px
+    ),
+    linear-gradient(black, black);
+  mask-composite: intersect;
+  filter: drop-shadow(0 0 40px var(--neon-pink));
+  opacity: 0.9;
+  animation: sun-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes sun-glow {
+  from { filter: drop-shadow(0 0 25px var(--neon-pink)); }
+  to   { filter: drop-shadow(0 0 55px var(--neon-cyan)); }
+}
+
+/* Grilla de piso con perspectiva */
+.synth-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background-image:
+    linear-gradient(var(--neon-cyan) 1px, transparent 1px),
+    linear-gradient(90deg, var(--neon-cyan) 1px, transparent 1px);
+  background-size: 60px 40px;
+  opacity: 0.35;
+  transform: perspective(300px) rotateX(55deg);
+  transform-origin: bottom;
+  animation: grid-scroll 3s linear infinite;
+}
+
+@keyframes grid-scroll {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 40px, 0 0; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 0 1rem;
+}
+
+.eyebrow {
+  color: var(--neon-cyan);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 900;
+  margin: 0.2rem 0;
+  color: #fff;
+  text-shadow:
+    0 0 8px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 40px var(--neon-violet);
+  animation: flicker 5s infinite;
+}
+
+@keyframes flicker {
+  0%, 92%, 94%, 100% { opacity: 1; }
+  93% { opacity: 0.6; }
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 1.2rem;
+}
+
+.hero-text {
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  max-width: 560px;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-neon-solid,
+.btn-neon-outline {
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-neon-solid {
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-violet));
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 15px rgba(255, 46, 196, 0.6);
+}
+
+.btn-neon-solid:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 45px var(--neon-violet);
+  color: #fff;
+}
+
+.btn-neon-outline {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+}
+
+.btn-neon-outline:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-cyan);
+  transform: translateY(-3px);
+}
+
+/* -----------------------------------------
+   6. HABILIDADES — Flexbox
+   ----------------------------------------- */
+.section-skills {
+  background: var(--bg);
+}
+
+.skills-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.skill-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  width: 220px;
+  padding: 1.6rem 1.3rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.skill-tag i {
+  color: var(--accent-2);
+  font-size: 1.8rem;
+  transition: color var(--transition-fast);
+}
+
+.skill-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.skill-desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.skill-tag:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(255, 46, 196, 0.35);
+}
+
+.skill-tag:hover i {
+  color: var(--accent);
+}
+
+/* -----------------------------------------
+   7. PROYECTOS — CSS Grid
+   ----------------------------------------- */
+.section-projects {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-2);
+  box-shadow: 0 0 25px rgba(5, 217, 232, 0.35);
+}
+
+.project-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, var(--accent) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+
+.project-card:hover .project-card-glow {
+  opacity: 0.15;
+}
+
+/* Caja de imagen con altura fija: así entran bien tanto imágenes
+   horizontales (capturas de pantalla) como verticales (posters) */
+.project-img-wrap {
+  width: 100%;
+  height: 260px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  transition: transform var(--transition-slow);
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+}
+
+.project-title {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  font-weight: 700;
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* -----------------------------------------
+   7.1 MODALES DE PROYECTOS (ventana ampliada)
+   ----------------------------------------- */
+.modal-neon {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 30px rgba(255, 46, 196, 0.35);
+}
+
+.modal-neon .modal-header,
+.modal-neon .modal-footer {
+  border-color: var(--border-color);
+}
+
+.modal-neon .modal-title {
+  font-family: var(--font-display);
+  color: var(--text);
+}
+
+.modal-img {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  margin: 0 auto 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.modal-desc-full {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* -----------------------------------------
+   8. CONTACTO
+   ----------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.form-label {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.input-neon {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px;
+}
+
+.input-neon:focus {
+  border-color: var(--accent-2) !important;
+  box-shadow: 0 0 10px rgba(5, 217, 232, 0.4) !important;
+}
+
+.contact-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.contact-links i {
+  font-size: 1.3rem;
+  color: var(--accent);
+  width: 1.4rem;
+  text-align: center;
+}
+
+.contact-links a:hover {
+  transform: translateX(6px);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(255, 46, 196, 0.3);
+}
+
+/* -----------------------------------------
+   9. FOOTER
+   ----------------------------------------- */
+.site-footer {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+body:has(#themeSwitch:checked) .site-footer {
+  background: var(--bg-elevated);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-socials a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* 
+   10. Accesibilidad: reduced motion
+   */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
