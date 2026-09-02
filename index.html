@@ -6,7 +6,7 @@
   <title>Ivo Gioffre | Portfolio</title>
   <meta name="description" content="Portfolio personal de Ivo Gioffre, desarrollador.">
 
-  <!--Favicon personalizado-->
+  <!--favicon personalizado-->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!--Se elijen las fuentes en mi caso Orbitron para los titulos y subtitulos y Rajdhani para el texto --> 
@@ -43,7 +43,7 @@
             <li class="nav-item"><a class="btn btn-neon" href="#proyectos">Proyectos</a></li>
             <li class="nav-item"><a class="btn btn-neon" href="#contacto">Contacto</a></li>
             <li class="nav-item">
-              <input type="checkbox" id="themeSwitch" class="theme-switch-input">
+              <input type="checkbox" id="themeSwitch" class="theme-switch-input"> <!-- para controlar el tema oscuro o claro-->
               <label for="themeSwitch" class="btn btn-outline-toggle ms-lg-2" title="Cambiar modo claro/oscuro">
                 <i class="fa-solid fa-moon icon-moon"></i>
                 <i class="fa-solid fa-sun icon-sun"></i>
@@ -59,19 +59,19 @@
 
     <!--seccion "sobre mi"-->
     <section id="sobre-mi" class="hero-synthwave">
-      <div class="synth-grid" aria-hidden="true"></div>
-      <div class="synth-sun" aria-hidden="true"></div>
-
+      <div class="synth-grid" aria-hidden="true"></div> <!--cuadricuado de fondo que luego se le da el estilo en styles.css-->
+      <div class="synth-sun" aria-hidden="true"></div><!--sol de fondo-->
+      <!--definimos la introduccion con la clase container de bootstrap-->
       <div class="container hero-content text-center">
         <p class="eyebrow">Hola soy</p>
         <h1 class="hero-title">Ivo Gioffre</h1>  <!--Titulo principal h1-->
         <p class="hero-subtitle">Desarrollador de Software &amp; Hardware</p>
         <p class="hero-text mx-auto">
-          Me llamo Ivo Gioffre. Esta es una breve presentación sobre mí: me interesa el desarrollo
-          de software, los videojuegos y todo lo relacionado con hardware y programación.
-          (Este texto es un placeholder — lo voy a completar más adelante).
+          Me llamo Ivo Gioffre y soy estudiante de 4.º año de Computación en el Instituto Industrial Luis A. Huergo.
+          Me interesa la programación y la tecnología, especialmente la forma en que el aprendizaje técnico ayuda a desarrollar una manera diferente de pensar y resolver problemas. 
+          Comencé aprendiendo Python y conociendo el funcionamiento y la estructura del hardware. Actualmente continúo ampliando mis conocimientos en áreas como HTML, CSS, Bootstrap, MySQL y Photoshop, mientras sigo explorando la evolución de nuevas tecnologías, desde los videojuegos hasta las redes informáticas.
         </p>
-
+        <!--contenedor de botones-->
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-neon-solid">Ver proyectos</a><!--asociamos "ver proyectos" al id=proyectos-->
           <a href="cv/CV_Ivo_Gioffre.pdf" download class="btn btn-neon-outline">
@@ -84,34 +84,34 @@
     <!--seccion de habilidades-->
     <section id="habilidades" class="section-skills">
       <div class="container">
-        <p class="section-eyebrow text-center">Stack &amp; conocimientos</p>
+        <p class="section-eyebrow text-center">Conocimientos</p>
         <h2 class="section-title text-center">Habilidades técnicas</h2>
-
+        <!--se usa <ul> ya que es una lista de habilidades donde el orden d los elementos no importa-->
         <ul class="skills-grid">
           <li class="skill-tag">
             <i class="fa-brands fa-python"></i>
             <span class="skill-name">Python</span>
-            <p class="skill-desc">Contá acá qué sabés hacer con Python (scripts, proyectos, etc).</p>
+            <p class="skill-desc"><p class="skill-desc">Programacion orientada a objetos, estructuras de datos y librerías como Pygame,CustomTkinter,Mutagen y Pillow. Las usé para desarrollar Mariano Bros y Nickify.</p> 
           </li>
           <li class="skill-tag">
             <i class="fa-brands fa-html5"></i>
             <span class="skill-name">HTML</span>
-            <p class="skill-desc">Contá acá tu nivel y experiencia armando páginas web.</p>
+            <p class="skill-desc">Desarrollo de páginas web utilizando HTML y CSS para crear y diseñar interfaces,incorporando Bootstrap para facilitar la estructura,el diseño y la adaptación a diferentes dispositivos.</p>
           </li>
           <li class="skill-tag">
             <i class="fa-solid fa-database"></i>
             <span class="skill-name">MySQL</span>
-            <p class="skill-desc">Contá acá qué hiciste con bases de datos.</p>
+            <p class="skill-desc">Diseño y gestión de bases de datos relacionales utilizando consultas SQL, vistas,procedimientos almacenados,funciones y triggers.</p>
           </li>
           <li class="skill-tag">
             <i class="fa-solid fa-microchip"></i>
             <span class="skill-name">Hardware</span>
-            <p class="skill-desc">Contá acá tus conocimientos de hardware (armado de PCs, reparación, etc).</p>
+            <p class="skill-desc">Armado y mantenimiento de PCs y conocimientos sobre su estructura y su funcionamiento.</p>
           </li>
           <li class="skill-tag">
             <i class="fa-solid fa-palette"></i>
             <span class="skill-name">Diseño (Photoshop)</span>
-            <p class="skill-desc">Contá acá qué sabés hacer en Photoshop u otras herramientas de diseño.</p>
+            <p class="skill-desc">Edición y retoque de imágenes en Photoshop trabajando con composición,textos y diferentes herramientas de edición.</p>
           </li>
         </ul>
       </div>
@@ -125,7 +125,7 @@
 
         <div class="projects-grid">
 
-          <!-- Proyecto mariano bros: al tocarlo abre el modal #modalMariano-->
+          <!-- Proyecto mariano bros, al tocarlo abre el modal #modalMariano-->
           <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalMariano">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
@@ -140,7 +140,7 @@
             </div>
           </button>
 
-          <!--Proyecto Nickify: al tocarlo abre el modal #modalNickify -->
+          <!--Proyecto Nickify, al tocarlo abre el modal #modalNickify -->
           <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalNickify">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
@@ -155,7 +155,7 @@
             </div>
           </button>
 
-          <!-- Proyecto gestor base de datos cine: al tocarlo abre el modal #modalCine -->
+          <!-- Proyecto gestor base de datos cine, al tocarlo abre el modal #modalCine -->
           <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalCine">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
@@ -164,7 +164,7 @@
             <div class="project-body">
               <h3 class="project-title">Gestor de Cine (MySQL)</h3>
               <p class="project-desc">
-                Base de datos para administrar un cine: películas, salas, funciones y entradas.
+                CinesDB es una base de datos desarrollada con MySQL que simula la gestion de una cadena de cines,Permitiendo administrar películas, complejos, salas, funciones, clientes, ventas y entradas.
               </p>
               <span class="project-link">Ver más <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
             </div>
@@ -175,7 +175,7 @@
     </section>
 
   <!--Ventanas de cada proyecto-->
-    <!--en cada <p class="modal-desc-full"> se escribe la descripcion ampliada del proyecto-->
+    <!--en cada <p class="modal-desc-full"> se escribe la descripcion ampliada del proyecto que despues se le dara formato en styles.css-->
 
     <div class="modal fade" id="modalMariano" tabindex="-1" aria-labelledby="modalMarianoLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -229,15 +229,23 @@
           <div class="modal-body">
             <img src="imagenes/logo.png" alt="Captura del reproductor Nickify" class="modal-img">
             <p class="modal-desc-full">
-                Nickify es un reproductor de música desarrollado en Python, inspirado en plataformas como Spotify, pero con una estética propia basada en el estilo neón y retro de los años 80. El proyecto busca combinar una interfaz visual llamativa con las funciones principales de un reproductor de música.
-                <br><br>
-                El programa permite agregar canciones desde el equipo, obteniendo automáticamente información como el título, artista, álbum, año, género y duración. Las canciones agregadas se almacenan dentro del programa para que puedan seguir disponibles al volver a ejecutarlo.
-                <br><br>
-                Nickify cuenta con las funciones principales de reproducción, como reproducir, pausar, avanzar, retroceder, pasar a la siguiente canción y controlar el volumen. También incluye los modos de reproducción aleatoria (shuffle) y repetición (repeat).
-                <br><br>
-                Además, permite crear y administrar playlists personalizadas, pudiendo agregar y eliminar canciones y seleccionar una portada para cada lista. El programa también cuenta con un buscador dinámico que permite encontrar canciones filtrando por título, artista, álbum, género o año.
-                <br><br>
-                El proyecto fue desarrollado utilizando Python y CustomTkinter para la interfaz gráfica, Pygame para la reproducción de audio, Mutagen para obtener los metadatos de los archivos MP3 y Pillow para el manejo de imágenes. La información de las canciones y playlists se guarda mediante archivos JSON, permitiendo mantener los datos entre diferentes ejecuciones del programa.
+              Nickify es un reproductor de música desarrollado en Python, inspirado en plataformas como Spotify, pero con una estética propia basada en el estilo neón y retro de los años 80. El proyecto busca combinar una interfaz visual llamativa con las funciones principales de un reproductor de música.
+            </p>
+
+            <p class="modal-desc-full">
+              El programa permite agregar canciones desde el equipo, obteniendo automáticamente información como el título, artista, álbum, año, género y duración. Las canciones agregadas se almacenan dentro del programa para que puedan seguir disponibles al volver a ejecutarlo.
+            </p>
+
+            <p class="modal-desc-full">
+              Nickify cuenta con las funciones principales de reproducción, como reproducir, pausar, avanzar, retroceder, pasar a la siguiente canción y controlar el volumen. También incluye los modos de reproducción aleatoria (shuffle) y repetición (repeat).
+            </p>
+
+            <p class="modal-desc-full">
+              Además, permite crear y administrar playlists personalizadas, pudiendo agregar y eliminar canciones y seleccionar una portada para cada lista. El programa también cuenta con un buscador dinámico que permite encontrar canciones filtrando por título, artista, álbum, género o año.
+            </p>
+
+            <p class="modal-desc-full">
+              El proyecto fue desarrollado utilizando Python y CustomTkinter para la interfaz gráfica, Pygame para la reproducción de audio, Mutagen para obtener los metadatos de los archivos MP3 y Pillow para el manejo de imágenes. La información de las canciones y playlists se guarda mediante archivos JSON, permitiendo mantener los datos entre diferentes ejecuciones del programa.
             </p>
           </div>
           <div class="modal-footer">
@@ -259,9 +267,23 @@
           <div class="modal-body">
             <img src="imagenes/cine.png"  alt="Gestor de base de datos de un cine en MySQL" class="modal-img">
             <p class="modal-desc-full">
-              Acá va la descripción ampliada del gestor de cine: qué tablas tiene la base de
-              datos (películas, salas, funciones, clientes, entradas), qué consultas permite
-              hacer, y cualquier otro detalle que quieras contar.
+                CinesDB es una base de datos desarrollada con MySQL que simula el funcionamiento de una cadena de cines. El proyecto permite organizar y administrar la información relacionada con las películas, los complejos, las salas, los clientes, las funciones y las entradas, representando de manera organizada las principales operaciones que se realizan en un cine.
+            </p>
+
+            <p class="modal-desc-full">
+                La base de datos contiene información sobre las películas, incluyendo datos como su título, duración, idioma, director, género, clasificación y formato. También permite administrar los diferentes complejos de la cadena, sus salas, las butacas disponibles y las funciones programadas para cada película.
+            </p>
+
+            <p class="modal-desc-full">
+                Además, el sistema permite gestionar los clientes y sus medios de pago, junto con las ventas y entradas realizadas. Las ventas registran las compras efectuadas, mientras que los tickets permiten identificar las funciones y las butacas utilizadas por los clientes.
+            </p>
+
+            <p class="modal-desc-full">
+                El proyecto también utiliza diferentes herramientas y características de MySQL, como vistas, procedimientos almacenados, funciones y triggers. Estos elementos permiten realizar consultas y automatizar determinadas operaciones dentro de la base de datos, facilitando la gestión y el control de la información.
+            </p>
+
+            <p class="modal-desc-full">
+                En conjunto, CinesDB representa un sistema de gestión para una cadena de cines, permitiendo administrar de forma organizada sus películas, complejos, salas, funciones, clientes, ventas y entradas mediante una base de datos relacional desarrollada con MySQL.
             </p>
           </div>
           <div class="modal-footer">
@@ -280,7 +302,6 @@
         <h2 class="section-title text-center">Contacto</h2>
 
         <div class="contact-grid">
-
           <form class="contact-form" action="#" method="post">
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre</label>
@@ -316,13 +337,13 @@
 
   </main>
 
-  <!--FOOTER-->
+  <!--footer-->
   <footer class="site-footer">
     <div class="container footer-content">
       <p>&copy; <span id="year"></span> Ivo Gioffre. Hecho con HTML, CSS y Bootstrap.</p>
       <div class="footer-socials">
         <a href="https://github.com/ivogioffre" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="mailto:ivo.gioffre@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="mailto:ivo.gioffre@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </footer>

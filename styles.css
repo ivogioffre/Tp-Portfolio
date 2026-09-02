@@ -1,8 +1,7 @@
-/* PORTFOLIO — Ivo Gioffre Estetica: Neon (retro 80s) */
 
-/* 1. VARIABLES CSS (tokens de diseño)*/
+/* variables css*/
 :root {
-  /* Paleta neon */
+  /*se establecen los valores de cada color para evitar volver a repetirlos en el codigo*/
   --bg-dark: #0d0221;
   --bg-dark-2: #1a0b2e;
   --neon-pink: #ff2ec4;
@@ -12,17 +11,16 @@
   --text-light: #f4f2fb;
   --text-muted: #b8aed4;
 
-  /* Tipografías */
+  /* Tipografias utilizadas */
   --font-display: "Orbitron", "Segoe UI", sans-serif;
   --font-body: "Rajdhani", "Segoe UI", sans-serif;
 
-  /* Layout */
   --max-width: 1150px;
   --radius: 14px;
   --transition-fast: 0.25s ease;
   --transition-slow: 0.6s ease;
 
-  /* Tema activo (por defecto = oscuro/neon) */
+  /* variables generales del tema actual, por defecto oscuro/neon */
   --bg: var(--bg-dark);
   --bg-elevated: var(--bg-dark-2);
   --text: var(--text-light);
@@ -32,8 +30,8 @@
   --border-color: rgba(255, 46, 196, 0.35);
 }
 
-/*  2. MODO CLARO (toggle vía clase en <body>) */
-body:has(#themeSwitch:checked) {
+/* para controlar el tema  */
+body:has(#themeSwitch:checked) {/* el #themeSwitch nos establece los cambios en el body del index*/
   --bg: #f4f2fb;
   --bg-elevated: #ffffff;
   --text: #1a0b2e;
@@ -43,16 +41,16 @@ body:has(#themeSwitch:checked) {
   --border-color: rgba(123, 47, 247, 0.25);
 }
 
-/* 3. RESET / BASE */
+/* para evitar problemas con las dimensiones*/
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth; /* scroll suave entre secciones */
-  scroll-padding-top: 80px; /* compensa el navbar fijo */
+  scroll-padding-top:  80px; 
 }
-
+/* modifica al body del index estableciendo su color y fuente */
 body {
   margin: 0;
   background-color: var(--bg);
@@ -62,7 +60,7 @@ body {
   line-height: 1.6;
   transition: background-color var(--transition-slow), color var(--transition-slow);
 }
-
+/* formato de los titulos y el navbar */
 h1, h2, h3, .navbar-brand {
   font-family: var(--font-display);
   letter-spacing: 0.03em;
@@ -74,9 +72,9 @@ a {
 }
 
 section {
-  padding: 6rem 0;
+  padding: 6rem 0; /*espacios entre secciones  */
 }
-
+/* modifica a todos los elementos que tengan class="section-eyebrow"*/
 .section-eyebrow {
   color: var(--accent-2);
   font-family: var(--font-body);
@@ -94,7 +92,7 @@ section {
   text-shadow: 0 0 12px var(--accent);
 }
 
-/*4. NAVBAR*/
+/*Navbar*/
 .navbar-neon {
   background: rgba(13, 2, 33, 0.75);
   backdrop-filter: blur(10px);
@@ -136,7 +134,7 @@ body:has(#themeSwitch:checked) .navbar-neon {
   box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px rgba(5, 217, 232, 0.4);
   transform: translateY(-2px);
 }
-
+/*para que el boton cambie de color cuando se le pase al mause por encima*/
 .btn-neon:nth-of-type(3n+2):hover {
   color: var(--neon-pink) !important;
   border-color: var(--neon-pink);
@@ -173,9 +171,8 @@ body:has(#themeSwitch:checked) .navbar-neon {
   transform: rotate(20deg);
 }
 
-/* El checkbox real queda invisible; lo que se ve es el <label> de arriba.
-   Al tocar el label, el checkbox cambia de estado solo (así funciona el
-   atributo "for") y con eso alcanza para cambiar el tema, sin JavaScript. */
+/* El checkbox real queda invisible; lo que se ve es el <label> de arriba
+   al tocar el label el checkbox cambia de estado solo  y con eso alcanza para cambiar el tema.*/
 .theme-switch-input {
   position: absolute;
   width: 1px;
@@ -183,7 +180,7 @@ body:has(#themeSwitch:checked) .navbar-neon {
   opacity: 0;
   pointer-events: none;
 }
-
+/*cambio de icono*/
 .icon-sun {
   display: none;
 }
@@ -196,9 +193,7 @@ body:has(#themeSwitch:checked) .navbar-neon {
   display: inline;
 }
 
-/* -----------------------------------------
-   5. HERO / SOBRE MÍ — estética synthwave
-   ----------------------------------------- */
+/*crea la seccion principal*/
 .hero-synthwave {
   position: relative;
   min-height: 100vh;
@@ -211,12 +206,12 @@ body:has(#themeSwitch:checked) .navbar-neon {
   transition: background var(--transition-slow);
 }
 
-/* En modo claro el hero pasa a un degradé claro, para que el toggle se note */
+/* En modo claro la seccion pasa a un degrade claro*/
 body:has(#themeSwitch:checked) .hero-synthwave {
   background: linear-gradient(180deg, #f4f2fb 0%, #e4d9f7 55%, #d8c3f0 100%);
 }
 
-/* En modo claro, las letras del hero pasan a oscuras para que se puedan leer */
+/* En modo claro las letras se la seccion pasan a oscuras para que se puedan leer */
 body:has(#themeSwitch:checked) .hero-title {
   color: var(--bg-dark);
   text-shadow: 0 0 8px var(--neon-pink), 0 0 18px rgba(255, 46, 196, 0.5);
@@ -227,7 +222,7 @@ body:has(#themeSwitch:checked) .hero-text {
   text-shadow: none;
 }
 
-/* Sol retro con franjas */
+/* Sol de fondo */
 .synth-sun {
   position: absolute;
   bottom: 28%;
@@ -258,7 +253,7 @@ body:has(#themeSwitch:checked) .hero-text {
   to   { filter: drop-shadow(0 0 55px var(--neon-cyan)); }
 }
 
-/* Grilla de piso con perspectiva */
+/* fondo cuadriculado debajo del sol*/
 .synth-grid {
   position: absolute;
   bottom: 0;
@@ -274,7 +269,7 @@ body:has(#themeSwitch:checked) .hero-text {
   transform-origin: bottom;
   animation: grid-scroll 3s linear infinite;
 }
-
+/*animacion del cuadriculado*/
 @keyframes grid-scroll {
   from { background-position: 0 0, 0 0; }
   to   { background-position: 0 40px, 0 0; }
@@ -306,7 +301,7 @@ body:has(#themeSwitch:checked) .hero-text {
     0 0 40px var(--neon-violet);
   animation: flicker 5s infinite;
 }
-
+/*parpadeo del nombre en el titulo*/
 @keyframes flicker {
   0%, 92%, 94%, 100% { opacity: 1; }
   93% { opacity: 0.6; }
@@ -371,13 +366,11 @@ body:has(#themeSwitch:checked) .hero-text {
   transform: translateY(-3px);
 }
 
-/* -----------------------------------------
-   6. HABILIDADES — Flexbox
-   ----------------------------------------- */
+/*Habilidades*/
 .section-skills {
   background: var(--bg);
 }
-
+/*crea las tarjeta de cada una de las habilidades*/
 .skills-grid {
   list-style: none;
   margin: 0;
@@ -387,7 +380,7 @@ body:has(#themeSwitch:checked) .hero-text {
   gap: 1.5rem;
   justify-content: center;
 }
-
+/*Cada una de las tarjetas*/
 .skill-tag {
   display: flex;
   flex-direction: column;
@@ -401,7 +394,7 @@ body:has(#themeSwitch:checked) .hero-text {
   border-radius: var(--radius);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
-
+/*le da tamaño y color a los iconos y tarjetas*/
 .skill-tag i {
   color: var(--accent-2);
   font-size: 1.8rem;
@@ -430,9 +423,7 @@ body:has(#themeSwitch:checked) .hero-text {
   color: var(--accent);
 }
 
-/* -----------------------------------------
-   7. PROYECTOS — CSS Grid
-   ----------------------------------------- */
+/*utilizamos css grid para organizar los proyectos en columnas*/
 .section-projects {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
 }
@@ -442,7 +433,7 @@ body:has(#themeSwitch:checked) .hero-text {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
-
+/*se crean cada una de las tarjetas modificando los botones del bootsrap */
 .project-card {
   position: relative;
   display: block;
@@ -478,8 +469,7 @@ body:has(#themeSwitch:checked) .hero-text {
   opacity: 0.15;
 }
 
-/* Caja de imagen con altura fija: así entran bien tanto imágenes
-   horizontales (capturas de pantalla) como verticales (posters) */
+/* Caja de imagen con altura fija asi entran bien tanto imagenes horizontales como verticales  */
 .project-img-wrap {
   width: 100%;
   height: 260px;
@@ -527,9 +517,7 @@ body:has(#themeSwitch:checked) .hero-text {
   letter-spacing: 0.05em;
 }
 
-/* -----------------------------------------
-   7.1 MODALES DE PROYECTOS (ventana ampliada)
-   ----------------------------------------- */
+/*bootstrap crea el modal y con css se transforma visualmente*/
 .modal-neon {
   background: var(--bg-elevated);
   color: var(--text);
@@ -562,16 +550,14 @@ body:has(#themeSwitch:checked) .hero-text {
   line-height: 1.6;
 }
 
-/* -----------------------------------------
-   8. CONTACTO
-   ----------------------------------------- */
+/*Contacto*/
 .contact-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   gap: 2.5rem;
   align-items: start;
 }
-
+/*se adapta a las dimenciones de pantalla*/
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -637,9 +623,7 @@ body:has(#themeSwitch:checked) .hero-text {
   box-shadow: 0 0 15px rgba(255, 46, 196, 0.3);
 }
 
-/* -----------------------------------------
-   9. FOOTER
-   ----------------------------------------- */
+/*Footer*/
 .site-footer {
   background: var(--bg-dark);
   color: var(--text-muted);
@@ -676,9 +660,7 @@ body:has(#themeSwitch:checked) .site-footer {
   transform: translateY(-3px);
 }
 
-/* 
-   10. Accesibilidad: reduced motion
-   */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
