@@ -61,7 +61,7 @@ body {
   transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 /* formato de los titulos y el navbar */
-h1, h2, h3, .navbar-brand {
+h1, h2, h3,.project-title, .navbar-brand {
   font-family: var(--font-display);
   letter-spacing: 0.03em;
 }
@@ -318,7 +318,9 @@ body:has(#themeSwitch:checked) .hero-text {
 .hero-text {
   color: #ffffff;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  max-width: 560px;
+  max-width: 640px;
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
 .hero-actions {

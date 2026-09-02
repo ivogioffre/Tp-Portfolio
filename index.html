@@ -74,7 +74,7 @@
         <!--contenedor de botones-->
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-neon-solid">Ver proyectos</a><!--asociamos "ver proyectos" al id=proyectos-->
-          <a href="cv/CV_Ivo_Gioffre.pdf" download class="btn btn-neon-outline">
+          <a href="CV/cv.pdf" download class="btn btn-neon-outline">
             <i class="fa-solid fa-download me-2"></i>Descargar CV
           </a>
         </div>
@@ -91,7 +91,7 @@
           <li class="skill-tag">
             <i class="fa-brands fa-python"></i>
             <span class="skill-name">Python</span>
-            <p class="skill-desc"><p class="skill-desc">Programacion orientada a objetos, estructuras de datos y librerías como Pygame,CustomTkinter,Mutagen y Pillow. Las usé para desarrollar Mariano Bros y Nickify.</p> 
+            <p class="skill-desc">Programacion orientada a objetos, estructuras de datos y librerías como Pygame,CustomTkinter,Mutagen y Pillow. Las usé para desarrollar Mariano Bros y Nickify.</p>
           </li>
           <li class="skill-tag">
             <i class="fa-brands fa-html5"></i>
@@ -126,49 +126,49 @@
         <div class="projects-grid">
 
           <!-- Proyecto mariano bros, al tocarlo abre el modal #modalMariano-->
-          <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalMariano">
+          <div class="project-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#modalMariano">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
-              <img src="imagenes/mariano.jpg"alt="Poster del juego Mariano Bros" class="project-img">
+              <img src="imagenes/mariano.jpg" alt="Poster del juego Mariano Bros" class="project-img">
             </div>
             <div class="project-body">
-              <h3 class="project-title">Mariano Bros</h3>
+              <div class="project-title">Mariano Bros</div>
               <p class="project-desc">
                  Un videojuego de plataformas al estilo Mario Bros llamado "Mariano Bros" desarrollado en Python utilizando la librería Pygame
               </p>
               <span class="project-link">Ver más <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
             </div>
-          </button>
+          </div>
 
           <!--Proyecto Nickify, al tocarlo abre el modal #modalNickify -->
-          <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalNickify">
+          <div class="project-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#modalNickify">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
               <img src="imagenes/logo.png" alt="Captura del reproductor Nickify" class="project-img">
             </div>
             <div class="project-body">
-              <h3 class="project-title">Nickify</h3>
+              <div class="project-title">Nickify</div>
               <p class="project-desc">
                Un reproductor de música al estilo Spotify desarrollado en Python con CustomTkinter, Pygame, Mutagen y Pillow.
               </p>
               <span class="project-link">Ver más <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
             </div>
-          </button>
+          </div>
 
           <!-- Proyecto gestor base de datos cine, al tocarlo abre el modal #modalCine -->
-          <button type="button" class="project-card" data-bs-toggle="modal" data-bs-target="#modalCine">
+          <div class="project-card" role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#modalCine">
             <div class="project-card-glow"></div>
             <div class="project-img-wrap">
               <img src="imagenes/cine.png" alt="Gestor de base de datos de un cine en MySQL" class="project-img">
             </div>
             <div class="project-body">
-              <h3 class="project-title">Gestor de Cine (MySQL)</h3>
+              <div class="project-title">CinesDB</div>
               <p class="project-desc">
                 CinesDB es una base de datos desarrollada con MySQL que simula la gestion de una cadena de cines,Permitiendo administrar películas, complejos, salas, funciones, clientes, ventas y entradas.
               </p>
               <span class="project-link">Ver más <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
             </div>
-          </button>
+          </div>
 
         </div>
       </div>
@@ -177,7 +177,7 @@
   <!--Ventanas de cada proyecto-->
     <!--en cada <p class="modal-desc-full"> se escribe la descripcion ampliada del proyecto que despues se le dara formato en styles.css-->
 
-    <div class="modal fade" id="modalMariano" tabindex="-1" aria-labelledby="modalMarianoLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMariano" tabindex="-1" role="dialog" aria-labelledby="modalMarianoLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-neon">
           <div class="modal-header">
@@ -219,7 +219,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="modalNickify" tabindex="-1" aria-labelledby="modalNickifyLabel" aria-hidden="true">
+    <div class="modal fade" id="modalNickify" tabindex="-1" role="dialog" aria-labelledby="modalNickifyLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-neon">
           <div class="modal-header">
@@ -257,7 +257,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="modalCine" tabindex="-1" aria-labelledby="modalCineLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCine" tabindex="-1" role="dialog" aria-labelledby="modalCineLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-neon">
           <div class="modal-header">
